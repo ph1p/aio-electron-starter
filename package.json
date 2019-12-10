@@ -1,0 +1,64 @@
+{
+  "name": "aio-electron-starter",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "app/dist/app.js",
+  "author": "",
+  "license": "ISC",
+  "private": true,
+  "scripts": {
+    "start": "concurrently \"yarn start:main\" \"yarn start:renderer\"",
+    "start:main": "yarn workspace main start",
+    "build:main": "yarn workspace main build",
+    "start:renderer": "yarn workspace renderer serve",
+    "build:renderer": "yarn workspace renderer build",
+    "build": "yarn build:renderer && yarn build:main",
+    "pack": "yarn build && electron-builder build",
+    "build:app": "yarn build && electron-builder --dir"
+  },
+  "build": {
+    "productName": "aio-electron-starter",
+    "appId": "org.dev.aio-electron-starter",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "app/**/*"
+    ],
+    "dmg": {
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "mac": {
+      "icon": "resources/icons/icon.icns"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "msi"
+      ]
+    }
+  },
+  "workspaces": [
+    "src/*"
+  ],
+  "prettier": {
+    "singleQuote": true
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.1",
+    "electron": "^7.1.7",
+    "electron-builder": "^21.2.0"
+  }
+}
