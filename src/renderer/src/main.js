@@ -5,8 +5,20 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 
+import './utils/contextMenu';
+
 Vue.config.productionTip = false;
 
+/*
+Small plugin to support auto resizing before create a Vue
+You can use it like this in your components:
+{
+  electron: {
+    width: 100,
+    height: 100
+  }
+}
+*/
 const Electron = {
   install(Vue) {
     Vue.mixin({
