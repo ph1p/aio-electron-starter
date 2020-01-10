@@ -11,6 +11,7 @@ const setupMenu = require('./menu');
 const setupTray = require('./tray');
 const { isDev } = require('./utils');
 
+// Reload main process if needed
 if (isDev) {
   try {
     require('electron-reloader')(module, {
@@ -19,41 +20,46 @@ if (isDev) {
   } catch (_) {}
 }
 
-const winURL = isDev ? 'http://localhost:8080' : 'app/dist/index.html';
+// Set URL
+const winURL = isDev
+  ? `http://localhost:${process.env.PORT || 8080}`
+  : 'app/dist/index.html';
 
 let mainWindow;
 
+// ADD MAIN MENU
 setupMenu();
 
 function createWindow() {
   mainWindow = new BrowserWindow({
     height: 500,
-    useContentSize: true,
     width: 1000,
     webPreferences: {
       nodeIntegration: true
     }
   });
 
-  if (isDev) {
-    mainWindow.webContents.openDevTools();
-  }
-
-  // TRAY
+  // ADD TRAY ICON
   setupTray();
 
+  // set url
   mainWindow[winURL.startsWith('http') ? 'loadURL' : 'loadFile'](winURL);
+
+  // EVENTS
+  ipcMain.on('resize', (event, arg) => {
+    if (!isDev) { // you can enable/disable it while your dev server is running
+      mainWindow.setSize(arg.width || 1000, arg.height || 500);
+    }
+  });
 
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
 
-  // EVENTS
-  ipcMain.on('resize', (event, arg) => {
-    if (!isDev) {
-      mainWindow.setSize(arg.width || 1000, arg.height || 500);
-    }
-  });
+  // DEV
+  if (isDev) {
+    mainWindow.webContents.openDevTools();
+  }
 }
 
 app.on('ready', createWindow);
