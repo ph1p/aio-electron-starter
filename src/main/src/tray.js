@@ -14,7 +14,7 @@ function setupTray() {
       { label: 'Item3', type: 'radio', checked: true },
       { label: 'Item4', type: 'radio' }
     ]);
-    tray.setToolTip('Dies ist meine Anwendung.');
+    tray.setToolTip('The tray icon');
     tray.setContextMenu(contextMenu);
   }
 }
