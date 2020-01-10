@@ -2,7 +2,6 @@ const { app, Menu } = require('electron');
 
 function setupMenu() {
   //----------------------------------------------------
-
   const isMac = process.platform === 'darwin';
 
   const template = [

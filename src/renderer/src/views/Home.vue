@@ -26,7 +26,7 @@ import { mapActions, mapGetters } from 'vuex';
 export default {
   electron: {
     width: 500,
-    height: 200
+    height: 520
   },
   computed: {
     ...mapGetters(['currentNumber'])
