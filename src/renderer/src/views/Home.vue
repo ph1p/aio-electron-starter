@@ -14,7 +14,7 @@
     </div>
 
     <div>
-      <button @click="asyncIncrement(10)">asyncIncrement -10</button>
+      <button @click="asyncIncrement(10)">asyncIncrement +10</button>
       <button @click="asyncDecrement(10)">asyncDecrement -10</button>
     </div>
   </div>
