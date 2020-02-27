@@ -1,31 +1,17 @@
-const {
-  BrowserWindow,
-  app,
-  Menu,
-  Tray,
-  nativeImage,
-  ipcMain
-} = require('electron');
-const path = require('path');
-const setupMenu = require('./menu');
-const setupTray = require('./tray');
-const { isDev } = require('./utils');
+import { BrowserWindow, app, ipcMain } from 'electron';
+import setupMenu from './menu';
+import setupTray from './tray';
+import { isDev, activateDevReloader } from './utils';
 
-// Reload main process if needed
-if (isDev) {
-  try {
-    require('electron-reloader')(module, {
-      watchRenderer: false
-    });
-  } catch (_) {}
-}
+app.allowRendererProcessReuse = true;
+activateDevReloader();
 
 // Set URL
 const winURL = isDev
   ? `http://localhost:${process.env.PORT || 8080}`
   : 'app/dist/index.html';
 
-let mainWindow;
+let mainWindow: Electron.BrowserWindow = null;
 
 // ADD MAIN MENU
 setupMenu();
@@ -47,7 +33,8 @@ function createWindow() {
 
   // EVENTS
   ipcMain.on('resize', (event, arg) => {
-    if (!isDev) { // you can enable/disable it while your dev server is running
+    if (!isDev) {
+      // you can enable/disable it while your dev server is running
       mainWindow.setSize(arg.width || 1000, arg.height || 500);
     }
   });

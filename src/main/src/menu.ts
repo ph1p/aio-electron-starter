@@ -1,35 +1,33 @@
-const { app, Menu } = require('electron');
+import { app, Menu } from 'electron';
 
 function setupMenu() {
   //----------------------------------------------------
   const isMac = process.platform === 'darwin';
 
-  const template = [
-    // { role: 'appMenu' }
-    ...(isMac
-      ? [
-          {
-            label: app.name,
-            submenu: [
-              { role: 'about' },
-              { type: 'separator' },
-              { role: 'services' },
-              { type: 'separator' },
-              { role: 'hide' },
-              { role: 'hideothers' },
-              { role: 'unhide' },
-              { type: 'separator' },
-              { role: 'quit' }
-            ]
-          }
-        ]
-      : []),
-    // { role: 'fileMenu' }
+  const template: Electron.MenuItemConstructorOptions[] = [];
+
+  if (isMac) {
+    template.push({
+      label: app.name,
+      submenu: [
+        { role: 'about' },
+        { type: 'separator' },
+        { role: 'services' },
+        { type: 'separator' },
+        { role: 'hide' },
+        { role: 'hideothers' },
+        { role: 'unhide' },
+        { type: 'separator' },
+        { role: 'quit' }
+      ] as Electron.MenuItemConstructorOptions[]
+    });
+  }
+
+  template.push(
     {
       label: 'File',
       submenu: [isMac ? { role: 'close' } : { role: 'quit' }]
     },
-    // { role: 'editMenu' }
     {
       label: 'Edit',
       submenu: [
@@ -51,22 +49,22 @@ function setupMenu() {
               }
             ]
           : [{ role: 'delete' }, { type: 'separator' }, { role: 'selectAll' }])
-      ]
+      ] as Electron.MenuItemConstructorOptions[]
     },
     // { role: 'viewMenu' }
     {
       label: 'View',
       submenu: [
         { role: 'reload' },
-        { role: 'forcereload' },
-        { role: 'toggledevtools' },
+        { role: 'forceReload' },
+        { role: 'toggleDevTools' },
         { type: 'separator' },
         { role: 'resetzoom' },
         { role: 'zoomin' },
         { role: 'zoomout' },
         { type: 'separator' },
-        { role: 'togglefullscreen' }
-      ]
+        { role: 'toggleFullscreen' }
+      ] as Electron.MenuItemConstructorOptions[]
     },
     // { role: 'windowMenu' }
     {
@@ -82,7 +80,7 @@ function setupMenu() {
               { role: 'window' }
             ]
           : [{ role: 'close' }])
-      ]
+      ] as Electron.MenuItemConstructorOptions[]
     },
     {
       role: 'help',
@@ -96,10 +94,10 @@ function setupMenu() {
         }
       ]
     }
-  ];
+  );
 
   const menu = Menu.buildFromTemplate(template);
   Menu.setApplicationMenu(menu);
 }
 
-module.exports = setupMenu;
+export default setupMenu;

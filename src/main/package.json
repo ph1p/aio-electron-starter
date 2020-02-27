@@ -4,14 +4,17 @@
   "main": "./src/index.js",
   "license": "ISC",
   "scripts": {
-    "build": "NODE_ENV=production webpack",
-    "build:dev": "NODE_ENV=development webpack",
-    "start": "NODE_ENV=development electron ."
+    "start": "concurrently \"yarn watch\" \"wait-on  ../../app/dist/index.js && NODE_ENV=development electron ../../app/dist/index.js\"",
+    "build": "NODE_ENV=production tsc",
+    "prewatch": "rimraf ../../app/dist",
+    "watch": "tsc -w",
+    "lint": "tslint -c tslint.json -p tsconfig.json"
   },
   "devDependencies": {
-    "electron-reloader": "^1.0.0",
-    "terser-webpack-plugin": "^2.3.1",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
+    "@types/node": "12",
+    "electron-reload": "^1.5.0",
+    "rimraf": "^3.0.2",
+    "tslint": "^6.0.0",
+    "typescript": "^3.8.2"
   }
 }

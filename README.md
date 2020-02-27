@@ -8,7 +8,7 @@ Additionally it should have as **few dependencies** as possible. I didn't really
 ## Features
 
 * Tray-Icon support
-* Build main with webpack
+* TypeScript main process
 * Yarn workspaces
 * electron-builder
 * Auto reloading main process

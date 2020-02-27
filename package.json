@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "keywords": [],
-  "main": "app/dist/app.js",
+  "main": "app/dist/index.js",
   "author": "",
   "license": "ISC",
   "private": true,

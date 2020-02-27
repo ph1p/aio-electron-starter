@@ -1,12 +1,11 @@
-const { app, Menu, Tray } = require('electron');
-const { getPathToFile, isDev } = require('./utils');
+import { Menu, Tray } from 'electron';
+import { getPathToFile } from './utils';
 
-let tray = null;
+let tray: Tray = null;
 
 function setupTray() {
   if (!tray) {
-    let imgPath = getPathToFile((isDev ? '../../app/' : '') + 'resources/tray/IconTemplate.png');
-    tray = new Tray(imgPath);
+    tray = new Tray(getPathToFile('resources/tray/IconTemplate.png'));
 
     const contextMenu = Menu.buildFromTemplate([
       { label: 'Item1', type: 'radio' },
@@ -19,4 +18,4 @@ function setupTray() {
   }
 }
 
-module.exports = setupTray;
+export default setupTray;
