@@ -4,9 +4,9 @@
   "main": "./src/index.js",
   "license": "ISC",
   "scripts": {
-    "start": "concurrently \"yarn watch\" \"wait-on  ../../app/dist/index.js && NODE_ENV=development electron ../../app/dist/index.js\"",
+    "start": "concurrently \"yarn watch\" \"wait-on  ../../app/dist/main/index.js && NODE_ENV=development electron ../../app/dist/main/index.js\"",
     "build": "NODE_ENV=production tsc",
-    "prewatch": "rimraf ../../app/dist",
+    "prewatch": "rimraf ../../app/dist/main",
     "watch": "tsc -w",
     "lint": "tslint -c tslint.json -p tsconfig.json"
   },

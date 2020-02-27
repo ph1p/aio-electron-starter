@@ -3,7 +3,7 @@
     "module": "commonjs",
     "noImplicitAny": true,
     "sourceMap": true,
-    "outDir": "../../app/dist",
+    "outDir": "../../app/dist/main",
     "baseUrl": ".",
     "paths": {
       "*": ["../../node_modules/*"]

@@ -1,7 +1,6 @@
 import { app, Menu } from 'electron';
 
-function setupMenu() {
-  //----------------------------------------------------
+export default function setupMenu() {
   const isMac = process.platform === 'darwin';
 
   const template: Electron.MenuItemConstructorOptions[] = [];
@@ -99,5 +98,3 @@ function setupMenu() {
   const menu = Menu.buildFromTemplate(template);
   Menu.setApplicationMenu(menu);
 }
-
-export default setupMenu;

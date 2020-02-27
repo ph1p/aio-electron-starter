@@ -5,9 +5,9 @@ export const isDev = process.env.NODE_ENV === 'development';
 
 export const getPathToFile = (fileName: string) => {
   if (isDev) {
-    return `${path.join(__dirname, `../../app/${fileName}`)}`;
+    return `${path.join(__dirname, `../../../app/${fileName}`)}`;
   }
-  return `${path.join(__dirname, `../${fileName}`)}`;
+  return `${path.join(__dirname, `../../${fileName}`)}`;
 };
 
 // Reload main process if needed DEV

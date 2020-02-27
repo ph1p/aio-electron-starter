@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "keywords": [],
-  "main": "app/dist/index.js",
+  "main": "app/dist/main/index.js",
   "author": "",
   "license": "ISC",
   "private": true,
@@ -14,8 +14,12 @@
     "start:renderer": "yarn workspace renderer serve",
     "build:renderer": "yarn workspace renderer build",
     "build": "yarn build:renderer && yarn build:main",
-    "pack": "yarn build && electron-builder build",
-    "build:app": "yarn build && electron-builder --dir"
+    "electron-build": "yarn build && electron-builder",
+    "build:app": "yarn electron-build --dir",
+    "build:all": "yarn electron-build build -mwl",
+    "build:mac": "yarn electron-build build --mac",
+    "build:linux": "yarn electron-build build --linux",
+    "build:windows": "yarn electron-build build--windows --x64"
   },
   "build": {
     "productName": "aio-electron-starter",

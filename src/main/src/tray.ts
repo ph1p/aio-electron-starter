@@ -3,7 +3,7 @@ import { getPathToFile } from './utils';
 
 let tray: Tray = null;
 
-function setupTray() {
+export default function setupTray() {
   if (!tray) {
     tray = new Tray(getPathToFile('resources/tray/IconTemplate.png'));
 
@@ -17,5 +17,3 @@ function setupTray() {
     tray.setContextMenu(contextMenu);
   }
 }
-
-export default setupTray;
