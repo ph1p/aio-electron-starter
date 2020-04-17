@@ -57,9 +57,9 @@
     "singleQuote": true
   },
   "devDependencies": {
-    "concurrently": "^5.0.1",
-    "electron": "^8.0.0",
-    "electron-builder": "^22.3.2",
-    "wait-on": "^4.0.0"
+    "concurrently": "^5.1.0",
+    "electron": "^8.2.3",
+    "electron-builder": "^22.5.1",
+    "wait-on": "^4.0.2"
   }
 }
