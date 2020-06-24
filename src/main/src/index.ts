@@ -4,6 +4,9 @@ import setupTray from './tray';
 import { isDev, activateDevReloader } from './utils';
 
 app.allowRendererProcessReuse = true;
+
+let mainWindow: Electron.BrowserWindow = null;
+
 activateDevReloader();
 
 // Set URL
@@ -11,13 +14,15 @@ const winURL = isDev
   ? `http://localhost:${process.env.PORT || 8080}`
   : 'app/dist/index.html';
 
-let mainWindow: Electron.BrowserWindow = null;
-
 // ADD MAIN MENU
 setupMenu();
 
 function createWindow() {
   mainWindow = new BrowserWindow({
+    transparent: true,
+    titleBarStyle: 'hiddenInset',
+    backgroundColor: '#ffffff',
+    frame: true,
     height: 500,
     width: 1000,
     webPreferences: {
@@ -32,7 +37,7 @@ function createWindow() {
   mainWindow[winURL.startsWith('http') ? 'loadURL' : 'loadFile'](winURL);
 
   // EVENTS
-  ipcMain.on('resize', (event, arg) => {
+  ipcMain.on('resize', (_, arg) => {
     if (!isDev) {
       // you can enable/disable it while your dev server is running
       mainWindow.setSize(arg.width || 1000, arg.height || 500);

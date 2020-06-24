@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div class="titlebar"></div>
     <nav>
       <router-link to="/">Home</router-link>
       <router-link to="/example">Example Page</router-link>
@@ -14,6 +15,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  .titlebar {
+    height: 38px;
+    background-color: #333;
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+  }
 }
 body,
 html {
