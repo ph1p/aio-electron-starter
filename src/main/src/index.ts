@@ -2,6 +2,7 @@ import { BrowserWindow, app, ipcMain } from 'electron';
 import setupMenu from './menu';
 import setupTray from './tray';
 import { isDev, activateDevReloader } from './utils';
+import setupContextMenu from './context-menu';
 
 app.allowRendererProcessReuse = true;
 
@@ -26,12 +27,14 @@ function createWindow() {
     height: 500,
     width: 1000,
     webPreferences: {
-      nodeIntegration: true
-    }
+      nodeIntegration: true,
+    },
   });
 
   // ADD TRAY ICON
   setupTray();
+
+  setupContextMenu();
 
   // set url
   mainWindow[winURL.startsWith('http') ? 'loadURL' : 'loadFile'](winURL);
