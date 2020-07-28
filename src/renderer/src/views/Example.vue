@@ -14,11 +14,11 @@ import { mapGetters } from 'vuex';
 export default {
   electron: {
     width: 500,
-    height: 240
+    height: 240,
   },
   computed: {
-    ...mapGetters(['currentNumber'])
-  }
+    ...mapGetters(['currentNumber']),
+  },
 };
 </script>
 

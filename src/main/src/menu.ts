@@ -17,15 +17,15 @@ export default function setupMenu() {
         { role: 'hideothers' },
         { role: 'unhide' },
         { type: 'separator' },
-        { role: 'quit' }
-      ] as Electron.MenuItemConstructorOptions[]
+        { role: 'quit' },
+      ] as Electron.MenuItemConstructorOptions[],
     });
   }
 
   template.push(
     {
       label: 'File',
-      submenu: [isMac ? { role: 'close' } : { role: 'quit' }]
+      submenu: [isMac ? { role: 'close' } : { role: 'quit' }],
     },
     {
       label: 'Edit',
@@ -44,11 +44,11 @@ export default function setupMenu() {
               { type: 'separator' },
               {
                 label: 'Speech',
-                submenu: [{ role: 'startspeaking' }, { role: 'stopspeaking' }]
-              }
+                submenu: [{ role: 'startspeaking' }, { role: 'stopspeaking' }],
+              },
             ]
-          : [{ role: 'delete' }, { type: 'separator' }, { role: 'selectAll' }])
-      ] as Electron.MenuItemConstructorOptions[]
+          : [{ role: 'delete' }, { type: 'separator' }, { role: 'selectAll' }]),
+      ] as Electron.MenuItemConstructorOptions[],
     },
     // { role: 'viewMenu' }
     {
@@ -62,8 +62,8 @@ export default function setupMenu() {
         { role: 'zoomin' },
         { role: 'zoomout' },
         { type: 'separator' },
-        { role: 'toggleFullscreen' }
-      ] as Electron.MenuItemConstructorOptions[]
+        { role: 'toggleFullscreen' },
+      ] as Electron.MenuItemConstructorOptions[],
     },
     // { role: 'windowMenu' }
     {
@@ -76,10 +76,10 @@ export default function setupMenu() {
               { type: 'separator' },
               { role: 'front' },
               { type: 'separator' },
-              { role: 'window' }
+              { role: 'window' },
             ]
-          : [{ role: 'close' }])
-      ] as Electron.MenuItemConstructorOptions[]
+          : [{ role: 'close' }]),
+      ] as Electron.MenuItemConstructorOptions[],
     },
     {
       role: 'help',
@@ -89,10 +89,10 @@ export default function setupMenu() {
           click: async () => {
             const { shell } = require('electron');
             await shell.openExternal('https://electronjs.org');
-          }
-        }
-      ]
-    }
+          },
+        },
+      ],
+    },
   );
 
   const menu = Menu.buildFromTemplate(template);

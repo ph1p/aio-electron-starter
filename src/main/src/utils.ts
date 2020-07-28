@@ -16,9 +16,14 @@ export async function activateDevReloader() {
     const reload = await import('electron-reload');
 
     reload(__dirname, {
-      electron: path.resolve(__dirname, '../../../node_modules', '.bin', 'electron'),
+      electron: path.resolve(
+        __dirname,
+        '../../../node_modules',
+        '.bin',
+        'electron',
+      ),
       forceHardReset: true,
-      hardResetMethod: 'exit'
+      hardResetMethod: 'exit',
     });
   }
 }

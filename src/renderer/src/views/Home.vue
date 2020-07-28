@@ -26,19 +26,19 @@ import { mapActions, mapGetters } from 'vuex';
 export default {
   electron: {
     width: 500,
-    height: 520
+    height: 520,
   },
   computed: {
-    ...mapGetters(['currentNumber'])
+    ...mapGetters(['currentNumber']),
   },
   methods: {
     ...mapActions([
       'increment',
       'decrement',
       'asyncDecrement',
-      'asyncIncrement'
-    ])
-  }
+      'asyncIncrement',
+    ]),
+  },
 };
 </script>
 

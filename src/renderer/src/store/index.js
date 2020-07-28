@@ -7,7 +7,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    num: 0
+    num: 0,
   },
   mutations: {
     increment(state, increment) {
@@ -15,7 +15,7 @@ export default new Vuex.Store({
     },
     decrement(state, increment) {
       state.num -= increment;
-    }
+    },
   },
   actions: {
     increment({ commit }, num) {
@@ -29,14 +29,14 @@ export default new Vuex.Store({
     },
     asyncDecrement({ commit }, num) {
       setTimeout(() => commit('decrement', num), 1000);
-    }
+    },
   },
   getters: {
-    currentNumber: state => state.num
+    currentNumber: state => state.num,
   },
   plugins: [
     createPersistedState({
-      key: 'app'
-    })
-  ]
+      key: 'app',
+    }),
+  ],
 });

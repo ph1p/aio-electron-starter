@@ -10,18 +10,18 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: Home
+    component: Home,
   },
   {
     path: '/example',
     name: 'example',
-    component: Example
-  }
+    component: Example,
+  },
 ];
 
 const router = new VueRouter({
   mode: 'hash',
-  routes
+  routes,
 });
 
 export default router;

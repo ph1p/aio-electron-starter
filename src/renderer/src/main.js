@@ -29,9 +29,9 @@ const Electron = {
             electron.ipcRenderer.send('resize', { width, height });
           }
         }
-      }
+      },
     });
-  }
+  },
 };
 
 Vue.use(Electron);
@@ -39,5 +39,5 @@ Vue.use(Electron);
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: h => h(App),
 }).$mount('#app');
