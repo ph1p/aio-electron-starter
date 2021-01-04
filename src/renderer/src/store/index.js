@@ -32,7 +32,7 @@ export default new Vuex.Store({
     },
   },
   getters: {
-    currentNumber: state => state.num,
+    currentNumber: (state) => state.num,
   },
   plugins: [
     createPersistedState({

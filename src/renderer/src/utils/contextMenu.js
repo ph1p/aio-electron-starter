@@ -2,7 +2,7 @@ const { ipcRenderer } = window.require('electron');
 
 window.addEventListener(
   'contextmenu',
-  e => {
+  (e) => {
     e.preventDefault();
 
     ipcRenderer.send('open-context-menu', {
