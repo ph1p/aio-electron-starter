@@ -8,14 +8,14 @@
   "license": "ISC",
   "private": true,
   "scripts": {
-    "start": "PORT=3000 concurrently \"wait-on tcp:3000 && yarn workspace main start\" \"yarn workspace renderer serve\"",
+    "start": "cross-env PORT=3000 concurrently \"wait-on tcp:3000 && yarn workspace main start\" \"yarn workspace renderer serve\"",
     "build": "yarn workspace renderer build && yarn workspace main build",
     "electron-build": "yarn build && electron-builder",
     "build:app": "yarn electron-build --dir",
     "build:all": "yarn electron-build build -mwl",
     "build:mac": "yarn electron-build build --mac",
     "build:linux": "yarn electron-build build --linux",
-    "build:windows": "yarn electron-build build--windows --x64"
+    "build:windows": "yarn electron-build build --win --x64"
   },
   "build": {
     "productName": "aio-electron-starter",
@@ -55,6 +55,7 @@
   ],
   "devDependencies": {
     "concurrently": "^5.3.0",
+    "cross-env": "^7.0.3",
     "electron": "^11.1.1",
     "electron-builder": "^22.9.1",
     "wait-on": "^5.2.1"
