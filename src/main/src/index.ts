@@ -4,8 +4,6 @@ import setupTray from './tray';
 import { isDev, activateDevReloader } from './utils';
 import setupContextMenu from './context-menu';
 
-app.allowRendererProcessReuse = true;
-
 let mainWindow: Electron.BrowserWindow = null;
 
 activateDevReloader();
@@ -28,6 +26,7 @@ function createWindow() {
     width: 1000,
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false,
     },
   });
 

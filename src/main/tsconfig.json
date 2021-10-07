@@ -5,6 +5,7 @@
     "sourceMap": true,
     "outDir": "../../app/dist/main",
     "baseUrl": ".",
+    "skipLibCheck": true,
     "paths": {
       "*": ["../../node_modules/*"]
     }

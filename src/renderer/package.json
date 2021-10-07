@@ -9,28 +9,28 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "core-js": "^3.8.2",
-    "vee-validate": "^3.4.5",
-    "vue": "^2.6.12",
-    "vue-router": "^3.4.9",
-    "vuex": "^3.6.0",
-    "vuex-persistedstate": "^3.1.0"
+    "core-js": "^3.18.2",
+    "vee-validate": "^3.4.13",
+    "vue": "^2.6.14",
+    "vue-router": "^3.5.2",
+    "vuex": "^3.6.2",
+    "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.10",
-    "@vue/cli-plugin-eslint": "^4.5.10",
-    "@vue/cli-plugin-router": "^4.5.10",
-    "@vue/cli-plugin-vuex": "^4.5.10",
-    "@vue/cli-service": "^4.5.10",
+    "@vue/cli-plugin-babel": "^4.5.13",
+    "@vue/cli-plugin-eslint": "^4.5.13",
+    "@vue/cli-plugin-router": "^4.5.13",
+    "@vue/cli-plugin-vuex": "^4.5.13",
+    "@vue/cli-service": "^4.5.13",
     "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.17.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-vue": "^7.4.1",
-    "prettier": "^2.2.1",
-    "sass": "^1.32.0",
-    "sass-loader": "^10.1.0",
-    "vue-template-compiler": "^2.6.12"
+    "eslint": "^7.32.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^7.19.1",
+    "prettier": "^2.4.1",
+    "sass": "^1.42.1",
+    "sass-loader": "^10",
+    "vue-template-compiler": "^2.6.14"
   },
   "eslintConfig": {
     "root": true,
